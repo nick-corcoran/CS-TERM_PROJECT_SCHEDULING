@@ -11,6 +11,15 @@ namespace CalendarExample.Controllers
         // GET: Home
         public ActionResult Index()
         {
+
+            
+            return View();
+        }
+
+
+        public ActionResult Scheduler(Guid cid)
+        {
+            ViewBag.cid = cid;
             return View();
         }
     }

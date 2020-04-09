@@ -9,6 +9,7 @@ using System.Web.SessionState;
 using System.Web.Http;
 using CalendarExample.Models;
 using System.Data.Entity;
+using System.Web.Optimization;
 
 namespace CalendarExample
 {
@@ -20,7 +21,7 @@ namespace CalendarExample
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-  
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

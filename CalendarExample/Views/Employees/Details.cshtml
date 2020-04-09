@@ -1,0 +1,33 @@
+﻿@model CalendarExample.Models.Employee
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeAddress.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeAddress.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,61 @@
+﻿@model CalendarExample.Models.Employee
+
+
+@using (Html.BeginForm())
+{
+
+
+    <div class="form-horizontal">
+        <h4>Employee</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        @Html.LabelFor(model => model.Name.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name.FirstName, new { htmlAttributes = new { @class = "form-control", Name = "FirstName" } })
+        </div>
+        @Html.LabelFor(model => model.Name.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name.LastName, new { htmlAttributes = new { @class = "form-control", Name = "LastName" } })
+        </div>
+        @Html.LabelFor(model => model.Name.MiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name.MiddleName, new { htmlAttributes = new { @class = "form-control", Name = "MiddleName" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.Country, new { htmlAttributes = new { @class = "form-control", Name = "Country" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.Province, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.Province, new { htmlAttributes = new { @class = "form-control", Name = "Province" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.City, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.City, new { htmlAttributes = new { @class = "form-control", Name = "City" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.Street, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.Street, new { htmlAttributes = new { @class = "form-control", Name = "Street" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.PostalCode, new { htmlAttributes = new { @class = "form-control", Name = "PostalCode" } })
+        </div>
+        @Html.LabelFor(model => model.JobTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.JobTitle, new { htmlAttributes = new { @class = "form-control", Name = "JobTitle" } })
+        </div>
+        @Html.LabelFor(model => model.Groups, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Groups, new { htmlAttributes = new { @class = "form-control", Name = "Groups" } })
+        </div>
+    </div>
+   
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

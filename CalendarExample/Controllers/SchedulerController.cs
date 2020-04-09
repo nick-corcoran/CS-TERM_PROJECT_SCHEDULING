@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,11 +15,15 @@ namespace CalendarExample.Controllers
         private SchedulerContext db = new SchedulerContext();
 
         // GET: api/scheduler
-        public IEnumerable<WebAPIEvent> Get()
+        
+        public IEnumerable<WebAPIEvent> Get(string id)
         {
-            return db.SchedulerEvents
-                .ToList()
-                .Select(e => (WebAPIEvent)e);
+
+
+
+            Guid EZEEclap = Guid.Parse(id);
+            return db.SchedulerEvents.Where(e => e.clientID == EZEEclap).ToList().Select(e => (WebAPIEvent)e);
+            
         }
 
         // GET: api/scheduler/5
@@ -32,8 +37,12 @@ namespace CalendarExample.Controllers
         public IHttpActionResult EditSchedulerEvent(int id, WebAPIEvent webAPIEvent)
         {
             var updatedSchedulerEvent = (SchedulerEvent)webAPIEvent;
-            updatedSchedulerEvent.Id = id;
-            db.Entry(updatedSchedulerEvent).State = EntityState.Modified;
+            Debug.WriteLine(updatedSchedulerEvent.employeeID);
+            var e = db.SchedulerEvents.Find(id);
+            e.employeeID = db.Employees.Find(updatedSchedulerEvent.employeeID).ID;
+            e.StartDate = updatedSchedulerEvent.StartDate;
+            e.EndDate = updatedSchedulerEvent.EndDate;
+            e.Text = updatedSchedulerEvent.Text;
             db.SaveChanges();
 
             return Ok(new
@@ -47,6 +56,7 @@ namespace CalendarExample.Controllers
         public IHttpActionResult CreateSchedulerEvent(WebAPIEvent webAPIEvent)
         {
             var newSchedulerEvent = (SchedulerEvent)webAPIEvent;
+       
             db.SchedulerEvents.Add(newSchedulerEvent);
             db.SaveChanges();
 

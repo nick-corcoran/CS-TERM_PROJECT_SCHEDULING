@@ -1,0 +1,48 @@
+﻿@model CalendarExample.Models.Customer
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name.FirstName, new { htmlAttributes = new { @class = "form-control", Name = "FirstName" } })
+        </div>
+        @Html.LabelFor(model => model.Name.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name.LastName, new { htmlAttributes = new { @class = "form-control", Name = "LastName" } })
+        </div>
+        @Html.LabelFor(model => model.Name.MiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name.MiddleName, new { htmlAttributes = new { @class = "form-control", Name = "MiddleName" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.Country, new { htmlAttributes = new { @class = "form-control", Name = "Country" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.Province, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.Province, new { htmlAttributes = new { @class = "form-control", Name = "Province" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.City, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.City, new { htmlAttributes = new { @class = "form-control", Name = "City" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.Street, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.Street, new { htmlAttributes = new { @class = "form-control", Name = "Street" } })
+        </div>
+        @Html.LabelFor(model => model.HomeAddress.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HomeAddress.PostalCode, new { htmlAttributes = new { @class = "form-control", Name = "PostalCode" } })
+        </div>
+
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

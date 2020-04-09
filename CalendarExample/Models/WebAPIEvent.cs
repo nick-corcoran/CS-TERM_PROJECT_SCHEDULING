@@ -11,8 +11,10 @@ namespace CalendarExample.Models
         public string text { get; set; }
         public string start_date { get; set; }
         public string end_date { get; set; }
-
         public string completed { get; set; }
+
+        public Guid clientid{ get; set; }
+        public Guid employeeid { get; set; }
 
         public static explicit operator WebAPIEvent(SchedulerEvent schedulerEvent)
         {
@@ -22,7 +24,9 @@ namespace CalendarExample.Models
                 text = schedulerEvent.Text,
                 start_date = schedulerEvent.StartDate.ToString("yyyy-MM-dd HH:mm"),
                 end_date = schedulerEvent.EndDate.ToString("yyyy-MM-dd HH:mm"),
-                completed = schedulerEvent.Completed
+                completed = schedulerEvent.Completed,
+                clientid = schedulerEvent.clientID,
+                employeeid = schedulerEvent.clientID
             };
         }
 
@@ -38,7 +42,9 @@ namespace CalendarExample.Models
                 EndDate = DateTime.Parse(
                     schedulerEvent.end_date,
                     System.Globalization.CultureInfo.InvariantCulture),
-                Completed = schedulerEvent.completed
+                Completed = schedulerEvent.completed,
+                clientID = schedulerEvent.clientid,
+                employeeID = schedulerEvent.employeeid
             };
         }
 

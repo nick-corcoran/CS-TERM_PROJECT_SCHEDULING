@@ -1,129 +1,31 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Home Page";
 }
 
-<!DOCTYPE html>
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css"
-          rel="stylesheet" type="text/css" />
-    <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"></script>
-    <script src="https://docs.dhtmlx.com/scheduler/codebase/ext/dhtmlxscheduler_editors.js?v=5.3.6"></script>
-
-
-
-    <script>
-
-
-
-        scheduler.locale.labels.section_checkme = "I'm going to participate";
-
-        scheduler.config.lightbox.sections = [
-            {
-                            { name: "text", height: 50, map_to: "text", type: "textarea", focus: true },
-            { name: "time", height: 72, type: "time", map_to: "auto" }
-
-                        },
-
-        ];
-
-
-
-        document.addEventListener("DOMContentLoaded", function (event) {
-            // initializing scheduler
-            scheduler.init("scheduler_here", new Date(2019, 0, 15));
-
-            // initiating data loading
-            scheduler.load("/api/scheduler");
-            // initializing dataProcessor
-            var dp = new dataProcessor("/api/scheduler");
-            // and attaching it to scheduler
-            dp.init(scheduler);
-            // setting the REST mode for dataProcessor
-            dp.setTransactionMode("REST");
-        });
-    </script>
-</head>
-<body>
-    <div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100vh;'>
-        <div class="dhx_cal_navline">
-            <div class="dhx_cal_prev_button">&nbsp;</div>
-            <div class="dhx_cal_next_button">&nbsp;</div>
-            <div class="dhx_cal_today_button"></div>
-            <div class="dhx_cal_date"></div>
-            <div class="dhx_cal_tab" name="day_tab"></div>
-            <div class="dhx_cal_tab" name="week_tab"></div>
-            <div class="dhx_cal_tab" name="month_tab"></div>
-        </div>
-        <div class="dhx_cal_header"></div>
-        <div class="dhx_cal_data"></div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-</body>
-</html>
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_material.css"
-          rel="stylesheet" type="text/css" />
-    <script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"></script>
-    <script src="https://docs.dhtmlx.com/scheduler/codebase/ext/dhtmlxscheduler_editors.js?v=5.3.6"></script>
-
-
-
-    <script>
-
-
-
-        scheduler.locale.labels.section_checkme = "Completed";
-
-        scheduler.config.lightbox.sections = [
-            
-            { name: "text", height: 50, map_to: "text", type: "textarea", focus: true },
-            { name: "time", height: 72, type: "time", map_to: "auto" },
-            {name: "checkme", map_to: "participation", type: "checkbox",checked_value: "registrable", unchecked_value: "unchecked", height: 40},
-
-        ];
-
-
-
-        document.addEventListener("DOMContentLoaded", function (event) {
-            // initializing scheduler
-            scheduler.init("scheduler_here", new Date(2019, 0, 15));
-
-            // initiating data loading
-            scheduler.load("/api/scheduler");
-            // initializing dataProcessor
-            var dp = new dataProcessor("/api/scheduler");
-            // and attaching it to scheduler
-            dp.init(scheduler);
-            // setting the REST mode for dataProcessor
-            dp.setTransactionMode("REST");
-        });
-    </script>
-</head>
-<body>
-    <div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100vh;'>
-        <div class="dhx_cal_navline">
-            <div class="dhx_cal_prev_button">&nbsp;</div>
-            <div class="dhx_cal_next_button">&nbsp;</div>
-            <div class="dhx_cal_today_button"></div>
-            <div class="dhx_cal_date"></div>
-            <div class="dhx_cal_tab" name="day_tab"></div>
-            <div class="dhx_cal_tab" name="week_tab"></div>
-            <div class="dhx_cal_tab" name="month_tab"></div>
-        </div>
-        <div class="dhx_cal_header"></div>
-        <div class="dhx_cal_data"></div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
-</body>
-</html>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>

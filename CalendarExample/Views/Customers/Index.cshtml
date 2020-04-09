@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CalendarExample.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Name.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeAddress.Country)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.HomeAddress.Province)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeAddress.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeAddress.PostalCode)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Name.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name.MiddleName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HomeAddress.Country)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HomeAddress.Province)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HomeAddress.Street)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HomeAddress.PostalCode)
+    </td>
+
+    <td>
+        @*name,action,controller,params*@
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+        @Html.ActionLink("Scheduler", "Scheduler", "Home", new {cid = item.ID},null)
+
+    </td>
+</tr>
+}
+
+</table>
